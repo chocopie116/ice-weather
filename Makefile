@@ -8,3 +8,5 @@ setup:
 install: setup
 	$(PHP) composer.phar install
 	$(CHMOD) -R 0777 app/storage
+load-class:
+	$(PHP) artisan dump-autoload
