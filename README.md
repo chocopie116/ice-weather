@@ -1,1 +1,8 @@
-# ice-weather
+ice-weather
+============
+
+##setup
+
+```sh:sh
+make install
+```
