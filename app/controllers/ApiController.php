@@ -23,10 +23,12 @@ class ApiController extends BaseController
         //画像として保存（ディレクトリは任意）
         imagesavealpha($image, TRUE); // 透明色の有効
 
-        $path = public_path() . '/img/' . date('YmdHis') . '.png';
+        $path = '/img/ice/' . date('YmdHis') . '.png';
 
-        imagepng($image , $path);
+        imagepng($image , public_path() . $path);
 
-        return Response::json(array('ok'), 200);
+        //DBに保存
+
+        return Response::json(array('imgUrl' => $path), 200);
     }
 }

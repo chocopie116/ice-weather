@@ -1,3 +1,4 @@
+'use strict';
 (function(window, $) {
     $(function() {
         var video = document.querySelector('video');
@@ -17,13 +18,14 @@
 
         //カメラ画像キャプチャ
         var snapshot = function() {
-            if (localMediaStream) {
-                ctx.drawImage(video, 0, 0);
-                var imgUrl = canvas.toDataURL();
-
-                document.querySelector('img').src = imgUrl;
-                saveSnapshot();
+            if (!localMediaStream) {
+                return;
             }
+            ctx.drawImage(video, 0, 0);
+            var imgUrl = canvas.toDataURL('png');
+
+            document.querySelector('img').src = imgUrl;
+            saveSnapshot();
         }
 
         var saveSnapshot = function() {
@@ -37,7 +39,7 @@
                 timeout:10000,
                 success: function(data) {
                     // 成功
-                    alert("ok");
+                    console.log(data);
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     // 失敗
@@ -60,8 +62,8 @@
             localMediaStream = stream;
         }, onFailSoHard);
 
-        $(window).click(function() {
+        $(window).on('click', function() {
             snapshot();
         });
-    })();
+    });
 })(window, jQuery);
