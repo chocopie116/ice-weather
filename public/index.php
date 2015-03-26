@@ -1,24 +1,49 @@
-<html>
-<head>
-<meta name="description" content="ice weatherは、あなたの「今日何のアイスを食べようかな？」を7FのアイスクリームBOXまでのぞきにいかなくても自席でワクワクできるサービスです">
-<meta name="keywords" content="アイスクリーム、アイス管理人様には足を向けてねれません">
-<title>ice weather</title>
-</head>
-<body>
-<h1>Ice weather </h1>
-<p>Ice weatherは、今日何のアイスを食べようかな？とワクワクしながら7FのアイスクリームBOXまでのぞきにいかなくても自席で確認できるアプリケーションです</p><br>
-<h3>現在の冷凍庫の様子です</h3>
-<img src="img/snapshot_20150326_2117.jpg">
+<?php
+/**
+ * Laravel - A PHP Framework For Web Artisans
+ *
+ * @package  Laravel
+ * @author   Taylor Otwell <taylorotwell@gmail.com>
+ */
 
-<p>
-ice weatherではテンションのあがるサイトをデザインしてくれるデザイナーさんや
-コードをレビューしてくれるエンジニアを募集しています。
-こういう機能つけてほしい！みたいなご意見があれば<a href="https://github.com/chocopie116/ice-weather/issues">こちら</a>に是非issueを上げてください
-</p>
-<a href="https://github.com/chocopie116/ice-weather">Contribute</a>
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader
+| for our application. We just need to utilize it! We'll require it
+| into the script here so that we do not have to worry about the
+| loading of any our classes "manually". Feels great to relax.
+|
+*/
 
-<script>
-console.log('ice creamに目がないフロントエンドエンジニア募集中 是非ここからjoinしてください。https://github.com/chocopie116/ice-weather');
-</script>
-</body>
-</html>
+require __DIR__.'/../bootstrap/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Turn On The Lights
+|--------------------------------------------------------------------------
+|
+| We need to illuminate PHP development, so let's turn on the lights.
+| This bootstraps the framework and gets it ready for use, then it
+| will load up this application so that we can run it and send
+| the responses back to the browser and delight these users.
+|
+*/
+
+$app = require_once __DIR__.'/../bootstrap/start.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can simply call the run method,
+| which will execute the request and send the response back to
+| the client's browser allowing them to enjoy the creative
+| and wonderful application we have whipped up for them.
+|
+*/
+
+$app->run();
