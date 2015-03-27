@@ -5,8 +5,9 @@
     "license": "MIT",
     "require": {
         "php": ">=5.4.0",
-        "laravel/framework": "4.1.*",
-         "ext-gd": "*"
+        "laravel/framework": "4.2.*",
+        "anahkiasen/rocketeer": "dev-master",
+        "cloudinary/cloudinary_php": "dev-master"
     },
     "require-dev" : {
         "phpunit/phpunit": "3.7.20",
