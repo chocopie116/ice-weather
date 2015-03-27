@@ -19,6 +19,7 @@ class ApiController extends BaseController
     {
         $imgFile = $_FILES['acceptImage']['tmp_name'];
         $cloudinaryUrl = getEnv('CLOUDINARY_URL');
+
         $parsedResult = parse_url($cloudinaryUrl);
         \Cloudinary::config(array(
             "cloud_name" => $parsedResult['host'],

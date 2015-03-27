@@ -10,6 +10,11 @@ Route::get('/capture', function()
     return View::make('capture');
 });
 
+Route::get('/report', function()
+{
+    return View::make('report');
+});
+
 Route::get('/api/{target}/image', 'ApiController@getImage');
 Route::post('/api/{target}/image', 'ApiController@postImage');
 
