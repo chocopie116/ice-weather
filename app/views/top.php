@@ -8,8 +8,11 @@
 <body>
 <h1>Ice weather </h1>
 <p>Ice weatherは、今日何のアイスを食べようかな？とワクワクしながら7FのアイスクリームBOXまでのぞきにいかなくても自席で確認できるアプリケーションです</p><br>
-<h3>現在の冷凍庫の様子です</h3>
-<img id="current_weather" src="">
+
+<div id="current_weather" style="display:none">
+    <h3>現在の冷凍庫の様子です</h3>
+    <img src="">
+</div>
 
 <p>
 ice weatherではテンションのあがるサイトをデザインしてくれるデザイナーさんや
@@ -28,9 +31,10 @@ $(function() {
         timeout:2000,
         success: function(data) {
             // 成功
+            var $currentWeather = $('#current_weather');
             console.log(data.image.url);
-            $('#current_weather').attr('src', data.image.url);
-
+            $currentWeather.find('img').attr('src', data.image.url);
+            $currentWeather.show();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
                 // 失敗
