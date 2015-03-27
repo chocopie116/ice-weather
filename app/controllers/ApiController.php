@@ -9,25 +9,20 @@ class ApiController extends BaseController
 
     public function postImage($target)
     {
-        $img = Input::get('img');
-
         //$imagePublicPath = '/img/ice/' . date('YmdHis') . '.png';
         //$filePath = public_path() . $imagePublicPath;
         //move_uploaded_file($_FILES['acceptImage']['tmp_name'], $filePath);
 
         //TODO secretなので絶対commitすんな
+        //cloudinary://:
         \Cloudinary::config(array(
-            "cloud_name" => "hfjbiwaqs",
-            "api_key" => "189555235614418",
-            "api_secret" => "nkaPz4jviODAo0yVbFJYuYmg_9o"
+            "cloud_name" => "hxhnynmvb",
+            "api_key" => "637966466372176",
+            "api_secret" => "Q8JWpD2VZCTw-1SY_cWTYBzsEsc"
         ));
-        //cloudinary://189555235614418:nkaPz4jviODAo0yVbFJYuYmg_9o@hfjbiwaqs
 
         //var_dump($_FILES['acceptImage']);
-        echo 'ok';
-        $file = '/home/demouser/ice-weather/public/img/snapshot_20150326_2117.jpg';
-        //$result = \Cloudinary\Uploader::upload($_FILES['acceptImage']['tmp_name']);
-        $result = \Cloudinary\Uploader::upload($file);
+        $result = \Cloudinary\Uploader::upload($_FILES['acceptImage']['tmp_name']);
         var_dump($result);
 
         //DBに保存
