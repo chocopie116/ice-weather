@@ -21,6 +21,10 @@ class ApiController extends BaseController
         $result = \Cloudinary\Uploader::upload($imgFile);
         $imgUrl = $result['url'];
 
+        $url = new \ImageUrl();
+        $url->image_url = $imgUrl;
+        $url->save();
+
         return Response::json(array('imgUrl' => $imgUrl), 200);
     }
 }
