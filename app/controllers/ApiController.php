@@ -8,14 +8,19 @@ class ApiController extends BaseController
 
     public function postImage($target)
     {
-        $img = Input::get('img');
+        $imgFile = $_FILES['acceptImage']['tmp_name'];
 
-        $imagePublicPath = '/img/ice/' . date('YmdHis') . '.png';
-        $filePath = public_path() . $imagePublicPath;
-        move_uploaded_file($_FILES['acceptImage']['tmp_name'], $filePath);
+        $cloudinaryUrl = getEnv('CLOUDINARY_URL');
+        $parsedResult = parse_url($cloudinaryUrl);
+        \Cloudinary::config(array(
+            "cloud_name" => $parsedResult['host'],
+            "api_key" =>  $parsedResult['user'],
+            "api_secret" => $parsedResult['pass']
+        ));
 
-        //DBに保存
+        $result = \Cloudinary\Uploader::upload($imgFile);
+        $imgUrl = $result['url'];
 
-        return Response::json(array('imgUrl' => $imagePublicPath), 200);
+        return Response::json(array('imgUrl' => $imgUrl), 200);
     }
 }
