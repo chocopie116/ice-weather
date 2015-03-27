@@ -27,16 +27,32 @@
             document.querySelector('img').src = imgUrl;
             saveSnapshot();
         }
+        var dataURItoBlob = function (dataURI) {
+            var binary = atob(dataURI.split(',')[1]);
+            var array = [];
+            for(var i = 0; i < binary.length; i++) {
+                array.push(binary.charCodeAt(i));
+            }
+            return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+        }
 
         var saveSnapshot = function() {
             var hostUrl= '/api/ice/image'; // データ送信先
             var picUrl = $('#captured_pic').attr('src');
+            var blob = dataURItoBlob(picUrl);
+            var formData = new FormData();
+            formData.append('acceptImage', blob);
+
             $.ajax({
                 url: hostUrl,
                 type:'POST',
                 dataType: 'json',
-                data : {img : picUrl},
+                data : formData,
                 timeout:10000,
+                //ajaxがdataを整形しないように指定
+                processData : false,
+                //contentTypeもfalseに指定
+                contentType : false,
                 success: function(data) {
                     // 成功
                     console.log(data);
