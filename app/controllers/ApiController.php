@@ -6,14 +6,13 @@ class ApiController extends BaseController
     {
         $url = \Image::orderBy('created_at', 'DESC')->first();
 
-        return Response::json(array(
+        $data = array(
             'image' => array(
-                array(
-                    'url' => $url->URL,
-                    'created_at' => $url->CREATED_AT
-                )
+                'url' => $url->URL,
+                'created_at' => $url->CREATED_AT
             )
-        ), 200);
+        );
+        return Response::json($data, 200);
     }
 
     public function postImage($target)
@@ -34,11 +33,12 @@ class ApiController extends BaseController
         $url->url = $imgUrl;
         $url->save();
 
-        return Response::json(array(
+        $data = array(
             'image' => array(
                 'url' => $url->url,
                 'created_at' => $url->created_at
             )
-        ), 200);
+        );
+        return Response::json($data, 200);
     }
 }
