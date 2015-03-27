@@ -1,11 +1,11 @@
 <?php
 
-class ImageUrl extends Eloquent
+class Image extends Eloquent
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'IMAGE_URL';
+    protected $table = 'IMAGE';
 }
