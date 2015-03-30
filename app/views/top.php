@@ -10,7 +10,7 @@
 <p>Ice weatherは、今日何のアイスを食べようかな？とワクワクしながら7FのアイスクリームBOXまでのぞきにいかなくても自席で確認できるアプリケーションです</p><br>
 
 <div id="current_weather" style="display:none">
-    <h3>現在の冷凍庫の様子です</h3>
+    <h3><p class="time"></p>時点の冷凍庫の様子です</h3>
     <img src="">
 </div>
 
@@ -32,8 +32,8 @@ $(function() {
         success: function(data) {
             // 成功
             var $currentWeather = $('#current_weather');
-            console.log(data.image.url);
             $currentWeather.find('img').attr('src', data.image.url);
+            $currentWeather.find('.time').text(data.image.created_at);
             $currentWeather.show();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
