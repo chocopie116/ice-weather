@@ -11,7 +11,7 @@
 
 <div id="current_weather" style="display:none">
     <h3><p class="time"></p>時点の冷凍庫の様子です</h3>
-    <img src="">
+    <img src="" style="width:90%">
 </div>
 
 <p>
