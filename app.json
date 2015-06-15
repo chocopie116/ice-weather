@@ -1,0 +1,8 @@
+{
+  "name": "Ice weather",
+  "repository": "https://github.com/chocopie116/ice-weather",
+  "addons": [
+    "cleardb",
+    "cloudinary"
+  ]
+}

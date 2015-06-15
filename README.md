@@ -1,6 +1,8 @@
 ice-weather
 ============
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ##setup
 
 ```sh:sh
@@ -9,8 +11,6 @@ make install
 
 
 ## middleware
-画像を保存するのにcloudinary(S3 + 画像加工URL + cdn)を使っている
 
-
-
-
+- DB は [ClearDB MySQL Database](https://addons.heroku.com/cleardb) を使っている
+- 画像を保存するのに [Cloudinary(S3 + 画像加工URL + cdn)](https://addons.heroku.com/cloudinary) を使っている
